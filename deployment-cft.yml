@@ -278,7 +278,11 @@ Resources:
             Action:
               - sts:AssumeRole
       Description: ElasticBeanstalk EC2 role that allows ReadOnly Access to CodePipeline
-      ManagedPolicyArns: [arn:aws:iam::aws:policy/AWSCodePipeline_ReadOnlyAccess]
+      ManagedPolicyArns: 
+        - arn:aws:iam::aws:policy/AWSCodePipeline_ReadOnlyAccess
+        - arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker
+        - arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier
+        - arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier
   
   EBInstanceProfile:
     Condition: CreateInstanceProfileAndRole

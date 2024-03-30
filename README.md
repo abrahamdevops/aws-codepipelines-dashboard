@@ -15,7 +15,8 @@ The terminal will stream the log of your application.
 ### With Docker
 After you have it running with Java/Maven (which builds it), assuming you have Docker installed and running, follow the guidelines in the docker_buildspec.yml to build a Docker image.  To run the app in a Docker container:
 ```
-docker run -p8080:8080 -v`echo $HOME/.aws`:/home/app/.aws:ro --name dashboard  codecentric/aws-codepipelines-dashboard
+docker build --build-arg AWS_ACCESS_KEY_ID=youracceskeyid --build-arg AWS_SECRET_ACCESS_KEY=yoursecretaccesskey -t dashboard .
+docker run -d -p8080:8080 --name dashboard  dashboard
 ```
 After start, you can reach the application from the same URL as above.  This configuration assumes that you've already an AWS account with a running AWS CLI on your development host.  If you're having trouble with that, see "_Instructions for Setting up AWS permission for Development_" below.
 ### Instructions for setting up AWS Permission for Development

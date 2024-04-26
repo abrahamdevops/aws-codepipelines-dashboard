@@ -5,8 +5,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class IndexController {
+    
     @GetMapping("/")
-    public String get() {
-        return "index";
+    public String loginPage() {
+        return "login"; 
     }
+
+    @GetMapping("/dashboard")
+    public String dashboardPage() {
+        return "index"; 
+    }
+
+    @GetMapping("/logout")
+    public String handleLogout() {
+        return "redirect:/"; 
+    }
+
 }

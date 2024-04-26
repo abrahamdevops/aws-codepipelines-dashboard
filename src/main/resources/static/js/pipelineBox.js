@@ -7,31 +7,34 @@ let pipelineService = PipelineService($, ajaxSequencer);
  */
 Vue.component("ThePageHeader", {
   template: `
-            <nav class="navbar navbar-light bg-light mb-4 mt-4">
-                <div class="input-group-btn">
-                  <button type="button" class="btn btn-sm btn-secondary dropdown-toggle mr-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  </button>
-                  <div class="dropdown-menu filter-dropdown-menu">
-                  </div>
-                </div>
-                <input class="form-control col-2 mr-2 js-filter-text" type="search"/>
-                <button type="button" class="btn btn-primary mr-4 js-filter-btn">Filter</button>
-
-                <a class="navbar-brand mr-auto col-6 text-center" href="#">Dashboard</a>
-
-                <span class="navbar-text mr-2">
-                    <span class="badge badge-success">succeeded</span>
-                </span>
-
-                <span class="navbar-text mr-2">
-                    <span class="badge badge-info">in progress</span>
-                </span>
-
-                <span class="navbar-text mr-2">
-                    <span class="badge badge-danger">failed</span>
-                </span>
-            </nav>
+    <nav class="navbar navbar-light bg-light mt-4 mb-4">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle mr-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu filter-dropdown-menu">
+        </div>
+      </div>
+      <input class="form-control col-2 mr-2 js-filter-text" type="search"/>
+      <button type="button" class="btn btn-primary mr-4 js-filter-btn">Filter</button>
+      <a class="navbar-brand mr-auto col-6 text-center" href="#">Dashboard</a>
+      <span class="navbar-text mr-2">
+        <span class="badge badge-success">succeeded</span>
+      </span>
+      <span class="navbar-text mr-2">
+        <span class="badge badge-info">in progress</span>
+      </span>
+      <span class="navbar-text mr-2">
+        <span class="badge badge-danger">failed</span>
+      </span>
+      <a class="btn btn-sm btn-danger js-filter-btn" href="#" @click="logout">Logout</a>
+    </nav>
   `,
+  methods: {
+    logout() {
+      console.log("Logging out...");
+      window.location.href = '/'; 
+    }
+  },  
   mounted() {
     // Update the title of the dashboard in the nav bar, from the text of the "title" element.
     $('.navbar-brand').text($('title').text());
@@ -462,3 +465,4 @@ app = new Vue({
   },
   methods: {}
 });
+

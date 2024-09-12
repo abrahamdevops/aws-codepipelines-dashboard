@@ -17,7 +17,7 @@ phases:
     commands:
       - echo Build completed on `date`
 
-      # The following commands read the artifactId, version and packaging tags from the maven POM.xml
+      # The following commands read the artifactId, versing tags from the maven POM.xml
       # and passes the info to the next stage in app_info.txt
 #      - APP_ARTIFACT_ID=$(grep '^archivesBaseName' build.gradle | cut -d'=' -f2|sed "s/[' ]//g")
 #      - APP_VERSION=$(grep '^version' build.gradle | cut -d'=' -f2|sed "s/[' ]//g")

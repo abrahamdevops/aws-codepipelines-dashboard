@@ -6,7 +6,7 @@ RUN cd /tmp/build-dir && mvn clean package -DskipTests
 
 ### Production stage
 FROM openjdk:17.0.1-jdk-slim
-LABEL maintainer="Oliver Hoogvliet <oliver.hoogvliet@codecentric.de>, Raimar Falke <raimar.falke@codecentric.de>"
+LABEL maintainer="Oliver Hoogvliet < Raimar Falke <raimar.falke@codecentric.de>"
 RUN groupadd -r app && useradd --no-log-init -r -g app app
 WORKDIR /home/app
 COPY --from=builder /tmp/build-dir/container_start.sh /app/container_start.sh

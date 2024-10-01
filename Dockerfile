@@ -12,7 +12,7 @@ WORKDIR /home/app
 COPY --from=builder /tmp/build-dir/container_start.sh /app/container_start.sh
 RUN chmod 755 /app/container_start.sh
 
-### Cffopy AWS Credentials passed as arguments
+### Copy AWS Credentials passed as arguments
 ARG AWS_ACCESS_KEY_ID
 ARG AWS_SECRET_ACCESS_KEY
 RUN mkdir -p /home/app/.aws && \
